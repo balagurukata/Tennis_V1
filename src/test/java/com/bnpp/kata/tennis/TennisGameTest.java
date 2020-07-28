@@ -45,4 +45,11 @@ public class TennisGameTest {
 		
 		assertThat("Love-All", is(tennisGame.calculateGameScore()));
 	}
+	
+    @Test
+    public void playerOneScoreShouldBeFifteenLoveWhenPlayerOneWontheFirstService() {
+        tennisGame.incrementPlayerOneScore();
+        
+        assertThat("Fifteen-Love", is(tennisGame.calculateGameScore()));
+    }
 }

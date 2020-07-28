@@ -52,4 +52,12 @@ public class TennisGameTest {
         
         assertThat("Fifteen-Love", is(tennisGame.calculateGameScore()));
     }
+    
+    @Test
+    public void gameScoreShouldBeLoveThirtyWhenPlayerTwoWonFirstAndScondService() {
+        tennisGame.incrementPlayerTwoScore();
+        tennisGame.incrementPlayerTwoScore();
+        
+        assertThat("Love-Thirty", is(tennisGame.calculateGameScore()));
+    }
 }

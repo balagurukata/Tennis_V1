@@ -1,15 +1,19 @@
 package com.bnpp.kata.tennis;
 
+
 import com.bnpp.kata.tennis.model.Player;
 
 public class TennisGame {
 
-	private static final String FIFTEEN_LOVE_SCORE = "Fifteen-Love";
-	private static final String LOVE_ALL_SCORE = "Love-All";
 	private static final String PLAYER_ONE_NAME = "PlayerOne";
 	private static final String PLAYER_TWO_NAME = "PlayerTwo";
-	private static final String LOVE_THIRTY_SCORE = "Love-Thirty";
-	private static final String FIFTEEN_ALL_SCORE = "Fifteen-All";
+	private static final String GAME_SCORE_ALL = "All";
+	
+	private static final char GAME_SCORE_SEPARATOR = '-';
+	
+	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty" };
+
+
 
 	private Player playerOne;
 	private Player playerTwo;
@@ -39,16 +43,21 @@ public class TennisGame {
 	public String calculateGameScore() {
 		String gameScore;
 
-		if (playerOne.getScoredPoint() == 1 && playerTwo.getScoredPoint() == 0) {
-			gameScore = FIFTEEN_LOVE_SCORE;
-		} else if (playerOne.getScoredPoint() == 0 && playerTwo.getScoredPoint() == 2) {
-			gameScore = LOVE_THIRTY_SCORE;
-		} else if (playerOne.getScoredPoint() == 1 && playerTwo.getScoredPoint() == 1) {
-			gameScore = FIFTEEN_ALL_SCORE;
+		if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
+			gameScore = generateGameAllScore();
 		} else {
-			gameScore = LOVE_ALL_SCORE;
+			gameScore = generateGameScore();
 		}
 		return gameScore;
+	}
+
+	private String generateGameAllScore() {
+		return GAME_SCORE[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR + GAME_SCORE_ALL;
+	}
+
+	private String generateGameScore() {
+		return GAME_SCORE[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR
+				+ GAME_SCORE[playerTwo.getScoredPoint()];
 	}
 
 	public void incrementPlayerOneScore() {

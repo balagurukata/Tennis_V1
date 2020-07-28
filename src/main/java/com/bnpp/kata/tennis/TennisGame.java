@@ -12,10 +12,8 @@ public class TennisGame {
 
 	public TennisGame() {
 		super();
-		playerOne = new Player();
-		playerOne.setName(PLAYER_ONE_NAME);
-		playerTwo = new Player();
-		playerTwo.setName(PLAYER_TWO_NAME);
+		playerOne = new Player(PLAYER_ONE_NAME);
+		playerTwo = new Player(PLAYER_TWO_NAME);
 	}
 
 	public int getPlayerOneScoredPoint() {
@@ -30,7 +28,7 @@ public class TennisGame {
 		return playerOne.getName();
 	}
 
-	public Object getPlayerTwoName() {
+	public String getPlayerTwoName() {
 		return playerTwo.getName();
 	}
 

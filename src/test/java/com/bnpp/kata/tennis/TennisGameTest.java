@@ -60,4 +60,12 @@ public class TennisGameTest {
         
         assertThat("Love-Thirty", is(tennisGame.calculateGameScore()));
     }
+    
+    @Test
+    public void gameScoreShouldBeFifteenAllWhenBothPlayersWontheOneServiceRespectively() {
+        tennisGame.incrementPlayerOneScore();
+        tennisGame.incrementPlayerTwoScore();
+        
+        assertThat("Fifteen-All", is(tennisGame.calculateGameScore()));
+    }
 }

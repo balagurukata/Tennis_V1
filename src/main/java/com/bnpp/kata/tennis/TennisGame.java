@@ -9,6 +9,7 @@ public class TennisGame {
 	private static final String PLAYER_ONE_NAME = "PlayerOne";
 	private static final String PLAYER_TWO_NAME = "PlayerTwo";
 	private static final String LOVE_THIRTY_SCORE = "Love-Thirty";
+	private static final String FIFTEEN_ALL_SCORE = "Fifteen-All";
 
 	private Player playerOne;
 	private Player playerTwo;
@@ -40,9 +41,11 @@ public class TennisGame {
 
 		if (playerOne.getScoredPoint() == 1 && playerTwo.getScoredPoint() == 0) {
 			gameScore = FIFTEEN_LOVE_SCORE;
-		} else if(playerOne.getScoredPoint() == 0 && playerTwo.getScoredPoint() == 2){
+		} else if (playerOne.getScoredPoint() == 0 && playerTwo.getScoredPoint() == 2) {
 			gameScore = LOVE_THIRTY_SCORE;
-		}else {
+		} else if (playerOne.getScoredPoint() == 1 && playerTwo.getScoredPoint() == 1) {
+			gameScore = FIFTEEN_ALL_SCORE;
+		} else {
 			gameScore = LOVE_ALL_SCORE;
 		}
 		return gameScore;

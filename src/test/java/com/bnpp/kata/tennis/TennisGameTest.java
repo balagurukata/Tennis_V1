@@ -39,4 +39,10 @@ public class TennisGameTest {
 
 		assertThat("PlayerTwo", is(tennisGame.getPlayerTwoName()));
 	}
+	
+	@Test
+	public void gameScoreShouldBeLoveAllBeforeGameBegins() {
+		
+		assertThat("Love-All", is(tennisGame.calculateGameScore()));
+	}
 }

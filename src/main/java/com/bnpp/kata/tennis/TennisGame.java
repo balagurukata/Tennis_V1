@@ -1,27 +1,37 @@
 package com.bnpp.kata.tennis;
 
+import com.bnpp.kata.tennis.model.Player;
+
 public class TennisGame {
 
 	private static final String PLAYER_ONE_NAME = "PlayerOne";
 	private static final String PLAYER_TWO_NAME = "PlayerTwo";
-	
-	private int playerOneScoredPoint;
-	private int playerTwoScoredPoint;
+
+	private Player playerOne;
+	private Player playerTwo;
+
+	public TennisGame() {
+		super();
+		playerOne = new Player();
+		playerOne.setName(PLAYER_ONE_NAME);
+		playerTwo = new Player();
+		playerTwo.setName(PLAYER_TWO_NAME);
+	}
 
 	public int getPlayerOneScoredPoint() {
-		return playerOneScoredPoint;
+		return playerOne.getScoredPoint();
 	}
 
 	public int getPlayerTwoScoredPoint() {
-		return playerTwoScoredPoint;
+		return playerTwo.getScoredPoint();
 	}
 
 	public String getPlayerOneName() {
-		return PLAYER_ONE_NAME;
+		return playerOne.getName();
 	}
 
 	public Object getPlayerTwoName() {
-		return PLAYER_TWO_NAME;
+		return playerTwo.getName();
 	}
 
 }

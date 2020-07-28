@@ -11,7 +11,7 @@ public class TennisGame {
 	
 	private static final char GAME_SCORE_SEPARATOR = '-';
 	
-	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty" };
+	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty","Forty" };
 
 
 

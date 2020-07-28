@@ -2,6 +2,8 @@ package com.bnpp.kata.tennis;
 
 public class TennisGame {
 
+	private static final String PLAYER_ONE_NAME = "PlayerOne";
+	
 	private int playerOneScoredPoint;
 	private int playerTwoScoredPoint;
 
@@ -14,7 +16,7 @@ public class TennisGame {
 	}
 
 	public String getPlayerOneName() {
-		return "PlayerOne";
+		return PLAYER_ONE_NAME;
 	}
 
 }

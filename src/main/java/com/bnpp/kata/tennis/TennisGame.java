@@ -36,19 +36,25 @@ public class TennisGame {
 
 		if (isPlayersHasEqualScore()) {
 			gameScore = isPalyersHasDeuceScore() ? DEUCE_GAME_SCORE : generateGameAllScore();
-		} else if (isGameWonByAnyPlayer()) {
-			gameScore = getTopScoredPlayerName() + WON_THE_GAME_RESULT;
-		} else if (isAnyPlayerHasAdvantage()) {
-			gameScore = getTopScoredPlayerName() + HAS_ADVANTAGE_SCORE;
+		} else if (isAnyPlayerEligibleToWin()) {
+			gameScore = isPlayersScoreDifferenceEqualToOne() ? getEligibleWinningPlayerScore(HAS_ADVANTAGE_SCORE)
+					: getEligibleWinningPlayerScore(WON_THE_GAME_RESULT);
 		} else {
 			gameScore = generateGameScore();
 		}
 		return gameScore;
 	}
 
-	private boolean isAnyPlayerHasAdvantage() {
-		return (playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE)
-				&& Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint()) == ADVANTAGE_DIFFERENCE_POINT;
+	private String getEligibleWinningPlayerScore(String winningScenario) {
+		return getTopScoredPlayerName() + winningScenario;
+	}
+
+	private boolean isPlayersScoreDifferenceEqualToOne() {
+		return Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint()) == ADVANTAGE_DIFFERENCE_POINT;
+	}
+
+	private boolean isAnyPlayerEligibleToWin() {
+		return playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE;
 	}
 
 	private boolean isPalyersHasDeuceScore() {
@@ -61,11 +67,6 @@ public class TennisGame {
 
 	private String getTopScoredPlayerName() {
 		return playerOne.getScoredPoint() > playerTwo.getScoredPoint() ? playerOne.getName() : playerTwo.getName();
-	}
-
-	private boolean isGameWonByAnyPlayer() {
-		return (playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE) && Math
-				.abs(playerTwo.getScoredPoint() - playerOne.getScoredPoint()) >= MINIMUM_WINNING_DIFFERENCE_POINT;
 	}
 
 	private String generateGameAllScore() {

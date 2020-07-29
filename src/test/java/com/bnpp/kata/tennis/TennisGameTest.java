@@ -108,6 +108,13 @@ public class TennisGameTest {
 		
 		assertThat("Deuce", is(tennisGame.calculateGameScore()));
     }
+	
+	@Test
+	public void gameScoreShouldBePlayerOneHasAdvantageWhenPlayerOneScoredFourPointsAndPlayerTwoScoredThreePoints() {
+		updatePlayerScore(4,3);
+
+		assertThat("PlayerOne has advantage", is(tennisGame.calculateGameScore()));
+	}
     
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {

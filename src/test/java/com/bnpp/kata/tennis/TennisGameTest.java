@@ -102,6 +102,13 @@ public class TennisGameTest {
     	assertThat("PlayerTwo won the game", is(tennisGame.calculateGameScore()));
     }
     
+	@Test
+    public void gameScoreShouldBeDeuceWhenBothPlayersHavingSameScoreAsMinimumTheePoints() {
+		updatePlayerScore(3,3);
+		
+		assertThat("Deuce", is(tennisGame.calculateGameScore()));
+    }
+    
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {
 			tennisGame.incrementPlayerOneScore();

@@ -2,22 +2,9 @@ package com.bnpp.kata.tennis;
 
 
 import com.bnpp.kata.tennis.model.Player;
+import static com.bnpp.kata.tennis.utils.TennisGameConstants.*;
 
 public class TennisGame {
-
-	private static final int MINIMUM_WINNING_DIFFERENCE_POINT = 2;
-	private static final int MINIMUM_WINNING_SCORE = 4;
-	
-	private static final String WON_THE_GAME_RESULT = " won the game";
-	private static final String PLAYER_ONE_NAME = "PlayerOne";
-	private static final String PLAYER_TWO_NAME = "PlayerTwo";
-	private static final String GAME_SCORE_ALL = "All";
-	
-	private static final char GAME_SCORE_SEPARATOR = '-';
-	
-	private static final String[] GAME_SCORE = { "Love", "Fifteen", "Thirty","Forty" };
-
-
 
 	private Player playerOne;
 	private Player playerTwo;

@@ -12,6 +12,7 @@ public class TennisGameConstants {
 	public static final String PLAYER_ONE_NAME = "PlayerOne";
 	public static final String PLAYER_TWO_NAME = "PlayerTwo";
 	public static final String GAME_SCORE_ALL = "All";
+	public static final String DEUCE_GAME_SCORE = "Deuce";
 
 	public static final char GAME_SCORE_SEPARATOR = '-';
 

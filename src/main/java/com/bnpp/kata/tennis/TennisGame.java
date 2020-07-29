@@ -36,7 +36,7 @@ public class TennisGame {
 
 		if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
 			if (playerTwo.getScoredPoint() >= 3) {
-				gameScore = "Deuce";
+				gameScore = DEUCE_GAME_SCORE;
 			} else {
 				gameScore = generateGameAllScore();
 			}

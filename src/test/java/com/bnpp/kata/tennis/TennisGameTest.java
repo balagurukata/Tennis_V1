@@ -141,6 +141,16 @@ public class TennisGameTest {
         assertThat(expectedPlayerOnePoint, is(tennisGame.getPlayerOneScoredPoint()));
     }
 	
+    @Test
+    public void playerTwoScoreShouldBeAutoIncrementByOneWhenPassingIndicatorAsB() {
+    	updatePlayerScore(1,2);
+    	
+        int expectedPlayerTwoPoint = tennisGame.getPlayerTwoScoredPoint() + 1;
+        tennisGame.addServicePointToWinner("B");
+        
+        assertThat(expectedPlayerTwoPoint, is(tennisGame.getPlayerTwoScoredPoint()));
+    }
+    
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {
 			tennisGame.incrementPlayerOneScore();

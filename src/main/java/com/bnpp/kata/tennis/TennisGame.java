@@ -10,9 +10,7 @@ public class TennisGame {
 	private Player playerTwo;
 
 	public TennisGame() {
-		super();
-		playerOne = new Player(PLAYER_ONE_NAME);
-		playerTwo = new Player(PLAYER_TWO_NAME);
+		this(PLAYER_ONE_NAME,PLAYER_TWO_NAME);
 	}
 
 	public TennisGame(String playerOneName, String playerTwoName) {

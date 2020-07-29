@@ -11,53 +11,50 @@ import static com.bnpp.kata.tennis.utils.TennisGameConstants.*;
 public class TennisGameRunner {
 
 	private static final Logger LOGGER = Logger.getLogger(TennisGameRunner.class.getName());
-	
+
 	public static void main(String[] args) {
 		new TennisGameRunner().playGame();
 	}
-	
+
 	public String playGame() {
-		LOGGER.info("******** Welcome to play the Tennis Game! ********");
-		
+		LOGGER.info(WELCOME_GAME_MESSAGE);
+
 		String gameScore = "";
 		Scanner inputScanner = new Scanner(System.in);
-		
-		LOGGER.info("Please enter the player1 name");
+
+		LOGGER.info(ENTER_PLAYER1_NAME_MESSAGE);
 		String playerOneName = inputScanner.nextLine();
 
-		LOGGER.info("Please enter the player2 name");
-		
+		LOGGER.info(ENTER_PLAYER2_NAME_MESSAGE);
+
 		String playerTwoName = inputScanner.nextLine();
 
 		TennisGame tennisGame = new TennisGame(playerOneName, playerTwoName);
-		
-		String winningIndicatorMessage = String.format(
-				"Press 'A' to indicate '%s' win the current service or Press 'B' to indicate ' %s' win the current service",
-				playerOneName, playerTwoName);
 
-		LOGGER.info("******** Lets start the game ! ********");
-		
+		String winningIndicatorMessage = String.format(ENTER_PLAYER_INDICATE_MESSAGE, playerOneName, playerTwoName);
+
 		do {
 			LOGGER.info(winningIndicatorMessage);
-			
+
 			try {
 				char winningIndicator = inputScanner.next().charAt(0);
 
 				tennisGame.addServicePointToWinner(String.valueOf(winningIndicator));
 				gameScore = tennisGame.calculateGameScore();
+				
 			} catch (InvalidUserInputException e) {
 				LOGGER.warning(e.getMessage());
 			}
 
-			String scoreDetails = String.format("Current Game score: %s", gameScore);
+			String scoreDetails = String.format(CURRENT_GAME_SCORE, gameScore);
 
 			LOGGER.info(scoreDetails);
-			
+
 		} while (isGameInProgress(gameScore));
 
 		inputScanner.close();
-		
-		LOGGER.info("******** Game Over ! ********");
+
+		LOGGER.info(GAME_OVER_MESSAGE);
 		return gameScore;
 	}
 

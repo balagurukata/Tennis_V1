@@ -17,6 +17,12 @@ public class TennisGameConstants {
 	public static final String GAME_SCORE_ALL = "All";
 	public static final String DEUCE_GAME_SCORE = "Deuce";
 	public static final String HAS_ADVANTAGE_SCORE = " has advantage";
+	public static final String GAME_OVER_MESSAGE = "******** Game Over ! ********";
+	public static final String CURRENT_GAME_SCORE = "Current Game score: %s";
+	public static final String ENTER_PLAYER_INDICATE_MESSAGE = "Press 'A' to indicate '%s' win the current service or Press 'B' to indicate ' %s' win the current service";
+	public static final String ENTER_PLAYER2_NAME_MESSAGE = "Please enter the player2 name";
+	public static final String ENTER_PLAYER1_NAME_MESSAGE = "Please enter the player1 name";
+	public static final String WELCOME_GAME_MESSAGE = "******** Welcome to play the Tennis Game! ********";
 
 	public static final char GAME_SCORE_SEPARATOR = '-';
 

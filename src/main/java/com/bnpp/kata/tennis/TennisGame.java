@@ -2,6 +2,8 @@ package com.bnpp.kata.tennis;
 
 
 import com.bnpp.kata.tennis.model.Player;
+import com.bnpp.kata.tennis.model.PlayerIndicator;
+
 import static com.bnpp.kata.tennis.utils.TennisGameConstants.*;
 
 public class TennisGame {
@@ -90,9 +92,9 @@ public class TennisGame {
 	}
 
 	public void addServicePointToWinner(String winningPlayerIndicator) {
-		if ("A".equals(winningPlayerIndicator)) {
+		if (PlayerIndicator.PLAYERONE.getValue().equals(winningPlayerIndicator)) {
 			incrementPlayerOneScore();
-		} else if ("B".equals(winningPlayerIndicator)) {
+		} else if (PlayerIndicator.PLAYERTWO.getValue().equals(winningPlayerIndicator)) {
 			incrementPlayerTwoScore();
 		}
 	}

@@ -5,6 +5,10 @@ import com.bnpp.kata.tennis.model.Player;
 
 public class TennisGame {
 
+	private static final int MINIMUM_WINNING_DIFFERENCE_POINT = 2;
+	private static final int MINIMUM_WINNING_SCORE = 4;
+	
+	private static final String WON_THE_GAME_RESULT = " won the game";
 	private static final String PLAYER_ONE_NAME = "PlayerOne";
 	private static final String PLAYER_TWO_NAME = "PlayerTwo";
 	private static final String GAME_SCORE_ALL = "All";
@@ -45,12 +49,16 @@ public class TennisGame {
 
 		if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
 			gameScore = generateGameAllScore();
-		} else if (playerOne.getScoredPoint() >= 4 && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= 2)) {
-			gameScore = getPlayerOneName() + " won the game";
+		} else if (isPlayerOneWonTheGame()) {
+			gameScore = getPlayerOneName() + WON_THE_GAME_RESULT;
 		} else {
 			gameScore = generateGameScore();
 		}
 		return gameScore;
+	}
+
+	private boolean isPlayerOneWonTheGame() {
+		return playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT);
 	}
 
 	private String generateGameAllScore() {

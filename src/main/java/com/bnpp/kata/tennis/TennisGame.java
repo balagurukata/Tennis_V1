@@ -54,12 +54,12 @@ public class TennisGame {
 	}
 
 	private String generateGameAllScore() {
-		return GAME_SCORE[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR + GAME_SCORE_ALL;
+		return getGameScore()[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR + GAME_SCORE_ALL;
 	}
 
 	private String generateGameScore() {
-		return GAME_SCORE[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR
-				+ GAME_SCORE[playerTwo.getScoredPoint()];
+		return getGameScore()[playerOne.getScoredPoint()] + GAME_SCORE_SEPARATOR
+				+ getGameScore()[playerTwo.getScoredPoint()];
 	}
 
 	public void incrementPlayerOneScore() {

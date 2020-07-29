@@ -49,19 +49,21 @@ public class TennisGame {
 
 		if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
 			gameScore = generateGameAllScore();
-		} else if (isPlayerOneWonTheGame()) {
-			gameScore = getPlayerOneName() + WON_THE_GAME_RESULT;
-		} else if (playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& (playerTwo.getScoredPoint() - playerOne.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT)) {
-			gameScore = getPlayerTwoName() + WON_THE_GAME_RESULT;
+		} else if (isGameWonByAnyPlayer()) {
+			gameScore = getTopScoredPlayerName() + WON_THE_GAME_RESULT;
 		} else {
 			gameScore = generateGameScore();
 		}
 		return gameScore;
 	}
 
-	private boolean isPlayerOneWonTheGame() {
-		return playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT);
+	private String getTopScoredPlayerName() {
+		return playerOne.getScoredPoint() > playerTwo.getScoredPoint() ? playerOne.getName() : playerTwo.getName();
+	}
+
+	private boolean isGameWonByAnyPlayer() {
+		return (playerOne.getScoredPoint() >= 4 || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE) && Math
+				.abs(playerTwo.getScoredPoint() - playerOne.getScoredPoint()) >= MINIMUM_WINNING_DIFFERENCE_POINT;
 	}
 
 	private String generateGameAllScore() {

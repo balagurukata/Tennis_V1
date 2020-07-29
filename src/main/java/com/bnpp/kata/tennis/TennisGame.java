@@ -51,6 +51,9 @@ public class TennisGame {
 			gameScore = generateGameAllScore();
 		} else if (isPlayerOneWonTheGame()) {
 			gameScore = getPlayerOneName() + WON_THE_GAME_RESULT;
+		} else if (playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				&& (playerTwo.getScoredPoint() - playerOne.getScoredPoint() >= MINIMUM_WINNING_DIFFERENCE_POINT)) {
+			gameScore = getPlayerTwoName() + WON_THE_GAME_RESULT;
 		} else {
 			gameScore = generateGameScore();
 		}

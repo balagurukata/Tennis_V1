@@ -95,6 +95,13 @@ public class TennisGameTest {
     	assertThat("PlayerOne won the game", is(tennisGame.calculateGameScore()));
     }
     
+    @Test
+    public void gameShouldBeWonByPlayerTwoWhenPlayerTwoScoreMinimumFourPointsAndPlayerOneScoreShouldBeMinimumLessThanTwoPoints() {
+    	updatePlayerScore(2,4);
+    	
+    	assertThat("PlayerTwo won the game", is(tennisGame.calculateGameScore()));
+    }
+    
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {
 			tennisGame.incrementPlayerOneScore();

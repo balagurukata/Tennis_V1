@@ -1,11 +1,10 @@
 package com.bnpp.kata.tennis;
 
-
 import com.bnpp.kata.tennis.model.Player;
 import com.bnpp.kata.tennis.model.PlayerIndicator;
 
 import static com.bnpp.kata.tennis.utils.TennisGameConstants.*;
-
+import com.bnpp.kata.tennis.exception.InvalidUserInputException;
 public class TennisGame {
 
 	private Player playerOne;
@@ -91,11 +90,13 @@ public class TennisGame {
 		playerTwo.incrementPlayerScore();
 	}
 
-	public void addServicePointToWinner(String winningPlayerIndicator) {
+	public void addServicePointToWinner(String winningPlayerIndicator) throws InvalidUserInputException {
 		if (PlayerIndicator.PLAYERONE.getValue().equals(winningPlayerIndicator)) {
 			incrementPlayerOneScore();
 		} else if (PlayerIndicator.PLAYERTWO.getValue().equals(winningPlayerIndicator)) {
 			incrementPlayerTwoScore();
+		}else {
+			throw new InvalidUserInputException("Invalid Input- Input Should be 'A' or 'B'");
 		}
 	}
 }

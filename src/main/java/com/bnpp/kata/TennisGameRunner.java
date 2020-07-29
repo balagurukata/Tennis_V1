@@ -3,11 +3,13 @@ package com.bnpp.kata;
 import java.util.Scanner;
 
 import com.bnpp.kata.tennis.TennisGame;
+import com.bnpp.kata.tennis.exception.InvalidUserInputException;
+
 import static com.bnpp.kata.tennis.utils.TennisGameConstants.*;
 
 public class TennisGameRunner {
 
-	public String playGame() {
+	public String playGame() throws InvalidUserInputException {
 		String gameScore;
 		Scanner inputScanner = new Scanner(System.in);
 

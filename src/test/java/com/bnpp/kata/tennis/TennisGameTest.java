@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.bnpp.kata.tennis.exception.InvalidUserInputException;
+
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 
@@ -132,7 +134,7 @@ public class TennisGameTest {
     }
     
     @Test
-    public void playerOneScoreShouldBeAutoIncrementByOneWhenPassingIndicatorAsA() {
+    public void playerOneScoreShouldBeAutoIncrementByOneWhenPassingIndicatorAsA() throws InvalidUserInputException {
     	updatePlayerScore(1,1);
     	
         int expectedPlayerOnePoint = tennisGame.getPlayerOneScoredPoint() + 1;
@@ -142,7 +144,7 @@ public class TennisGameTest {
     }
 	
     @Test
-    public void playerTwoScoreShouldBeAutoIncrementByOneWhenPassingIndicatorAsB() {
+    public void playerTwoScoreShouldBeAutoIncrementByOneWhenPassingIndicatorAsB() throws InvalidUserInputException {
     	updatePlayerScore(1,2);
     	
         int expectedPlayerTwoPoint = tennisGame.getPlayerTwoScoredPoint() + 1;
@@ -150,6 +152,13 @@ public class TennisGameTest {
         
         assertThat(expectedPlayerTwoPoint, is(tennisGame.getPlayerTwoScoredPoint()));
     }
+    
+	@Test(expected = InvalidUserInputException.class)
+	public void shouldThrowInvalidUserInputExceptionWhenInvalidIndicatorPassingForPlayer() throws InvalidUserInputException{
+    	updatePlayerScore(1,2);
+    	
+        tennisGame.addServicePointToWinner("X");
+	}
     
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {

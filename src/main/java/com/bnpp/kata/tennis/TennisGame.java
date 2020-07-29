@@ -38,13 +38,17 @@ public class TennisGame {
 			gameScore = isPalyersHasDeuceScore() ? DEUCE_GAME_SCORE : generateGameAllScore();
 		} else if (isGameWonByAnyPlayer()) {
 			gameScore = getTopScoredPlayerName() + WON_THE_GAME_RESULT;
-		} else if (playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE
-				&& playerOne.getScoredPoint() - playerTwo.getScoredPoint() == 1) {
-			gameScore = getTopScoredPlayerName() + " has advantage";
+		} else if (isPlayerOneHasAdvantage()) {
+			gameScore = getTopScoredPlayerName() + HAS_ADVANTAGE_SCORE;
 		} else {
 			gameScore = generateGameScore();
 		}
 		return gameScore;
+	}
+
+	private boolean isPlayerOneHasAdvantage() {
+		return playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE
+				&& playerOne.getScoredPoint() - playerTwo.getScoredPoint() == ADVANTAGE_DIFFERENCE_POINT;
 	}
 
 	private boolean isPalyersHasDeuceScore() {
@@ -60,7 +64,7 @@ public class TennisGame {
 	}
 
 	private boolean isGameWonByAnyPlayer() {
-		return (playerOne.getScoredPoint() >= 4 || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE) && Math
+		return (playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE) && Math
 				.abs(playerTwo.getScoredPoint() - playerOne.getScoredPoint()) >= MINIMUM_WINNING_DIFFERENCE_POINT;
 	}
 

@@ -15,6 +15,11 @@ public class TennisGame {
 		playerTwo = new Player(PLAYER_TWO_NAME);
 	}
 
+	public TennisGame(String playerOneName, String playerTwoName) {
+		playerOne = new Player(playerOneName);
+		playerTwo = new Player(playerTwoName);
+	}
+
 	public int getPlayerOneScoredPoint() {
 		return playerOne.getScoredPoint();
 	}

@@ -123,6 +123,14 @@ public class TennisGameTest {
 		assertThat("PlayerTwo has advantage", is(tennisGame.calculateGameScore()));
 	}
     
+    @Test
+    public void bothPlayerNamesShouldBeEqualWithInitializedGameInstantParameter() {
+        tennisGame = new TennisGame("AAA", "BBB");
+        
+        assertThat("AAA", is(tennisGame.getPlayerOneName()));
+        assertThat("BBB", is(tennisGame.getPlayerTwoName()));
+    }
+	
 	private void updatePlayerScore(int playerOneNumberOfWins, int playerTwoNumberOfWins) {
 		for (int i = 0; i < playerOneNumberOfWins; i++) {
 			tennisGame.incrementPlayerOneScore();
